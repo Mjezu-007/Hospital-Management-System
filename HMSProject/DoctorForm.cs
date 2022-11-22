@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace HMSProject
 {
@@ -10,32 +9,32 @@ namespace HMSProject
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<DoctorForm> _logger;
     private readonly AppDbContext _context;
-    private readonly Home _homeform;
     
     public DoctorForm(ILogger<DoctorForm> logger
       , UserManager<ApplicationUser> userManager
-      , AppDbContext context
-      , Home home)
+      , AppDbContext context)
     {
       _logger = logger;
       _userManager = userManager;
       _context = context;
-      _homeform = home;
       InitializeComponent();
     }
+
     void populate()
     {
       var dbDoctors = _context.Doctors.Include(d => d.ApplicationUser);
 
       DoctorGV.DataSource = dbDoctors.ToList();
     }
+
     private void button4_Click(object sender, EventArgs e)
     {
-      _homeform.Show();
+      Form form = Application.OpenForms["Home"]; //it should works
+      form.Show();
       this.Hide();
     }
 
-    private async void button1_Click(object sender, EventArgs e)
+    private async void AddButton_Click(object sender, EventArgs e)
     {
       if (DocId.Text == "" || DocName.Text == "" || DocSurname.Text == "" || DocPass.Text == "" || DocExp.Text == "")
         MessageBox.Show("No Empty Fill Accepted");
@@ -95,7 +94,7 @@ namespace HMSProject
       populate();
     }
 
-    private async void button3_Click(object sender, EventArgs e)
+    private async void DeleteButton_Click(object sender, EventArgs e)
     {
       try
       {
@@ -156,7 +155,7 @@ namespace HMSProject
       DocPass.Text = "******";
     }
 
-    private void button2_Click(object sender, EventArgs e)
+    private void UpdateButton_Click(object sender, EventArgs e)
     {
       try
       {

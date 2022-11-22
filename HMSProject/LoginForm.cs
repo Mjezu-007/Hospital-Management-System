@@ -14,14 +14,13 @@ namespace HMSProject
     public LoginForm(ILogger<LoginForm> logger
       , AppDbContext context
       , UserManager<ApplicationUser> userManager
-      , SignInManager<ApplicationUser> signInManager
-      , Home homeForm)
+      , SignInManager<ApplicationUser> signInManager)
     {
       _logger = logger ?? throw new ArgumentNullException(nameof(logger));
       _context = context ?? throw new ArgumentNullException(nameof(context));
       _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
       _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
-      _homeForm = homeForm;
+      //_homeForm = homeForm;
       InitializeComponent();
     }
 
@@ -40,7 +39,10 @@ namespace HMSProject
         return;
       }
 
-      _homeForm.Show();
+      Form form = Application.OpenForms["Home"]; //it should works
+      form.Show();
+
+      //_homeForm.Show();
       this.Hide();
     }
 

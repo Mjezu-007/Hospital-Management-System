@@ -231,7 +231,7 @@
       this.button1.TabIndex = 6;
       this.button1.Text = "Add";
       this.button1.UseVisualStyleBackColor = false;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.button1.Click += new System.EventHandler(this.AddButton_Click);
       // 
       // button2
       // 
@@ -246,7 +246,7 @@
       this.button2.TabIndex = 7;
       this.button2.Text = "Update";
       this.button2.UseVisualStyleBackColor = false;
-      this.button2.Click += new System.EventHandler(this.button2_Click);
+      this.button2.Click += new System.EventHandler(this.UpdateButton_Click);
       // 
       // button3
       // 
@@ -261,7 +261,7 @@
       this.button3.TabIndex = 8;
       this.button3.Text = "Delete";
       this.button3.UseVisualStyleBackColor = false;
-      this.button3.Click += new System.EventHandler(this.button3_Click);
+      this.button3.Click += new System.EventHandler(this.DeleteButton_Click);
       // 
       // button4
       // 

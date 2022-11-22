@@ -91,15 +91,15 @@ namespace HMSProject.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c0ce38d9-1420-4f40-b128-ad12acf375dd",
+                            ConcurrencyStamp = "75ec8421-6821-47db-9258-3c75f6f51950",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOYWjxEhO5Cn0imhZ28wASmVfJGg418MdIMSykWrtu9/wxFwIlscJwEIc9ROmC3YSw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBoJaGvBRHL2ABee0EvaxSouhTFEAWaGO9J15NUemwI1fJRO3wLduf1Zrzov1YCgag==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e13e2c45-e368-4061-a694-36c2a82436b3",
+                            SecurityStamp = "11412da5-55eb-4e79-a2a3-337e966f9367",
                             TwoFactorEnabled = false,
                             UserName = "Admin@localhost.com"
                         },
@@ -107,15 +107,15 @@ namespace HMSProject.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49688099-32f3-4638-84bd-444b174bccb2",
+                            ConcurrencyStamp = "46bf0a23-eef7-4998-be3d-7bb0f7b36ee6",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIOZmiJhpmVUjBy1xpxtKYCHEC6ux+SK60cQiEICBcK2lnJU1XMvhI6Sj+YqaejwPg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM2Q63Lj9xtP2FgK9AevnPQIpb6C0tzUGOseflS9QrZWVKEGkIXSGgze3Qi95ZeSQQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c27b43a7-ed85-4be9-b006-aafdccda92ea",
+                            SecurityStamp = "7aaa41a4-5e1d-4590-bc2f-96cc872d7979",
                             TwoFactorEnabled = false,
                             UserName = "User@localhost.com"
                         },
@@ -123,15 +123,15 @@ namespace HMSProject.Migrations
                         {
                             Id = "f583f605-f00c-4fcb-8393-5206bd1178c4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "827ec52b-5cda-41d3-a1bb-b027ff072dc1",
+                            ConcurrencyStamp = "77e36a56-4f17-43f2-a366-32a88eb900c9",
                             Email = "murray@localhost.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MURRAY@LOCALHOST.COM",
                             NormalizedUserName = "MURRAY@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEc1hwIv0R4vt5BfNQOw4qHHLQv7ljoq75qKYteAS7HsL4Y5mr7k0u9AqIUyKvTyMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGm4ZHF0ebfl5g7cB9gmvmPshy/vfxOElGkWqIESuDj/W0xyKs77mD2dUqnEyJ5+0Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d5b2ddfc-6d88-4bd1-8f59-2f7618103c61",
+                            SecurityStamp = "bbb57304-a8e9-4606-a0c1-2ea4ef6b220e",
                             TwoFactorEnabled = false,
                             UserName = "murray@localhost.com"
                         },
@@ -139,17 +139,119 @@ namespace HMSProject.Migrations
                         {
                             Id = "0a928ef6-03ac-4a28-b0be-199ee6015077",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "90db1407-3243-44f2-8d78-51cb7aec61b6",
+                            ConcurrencyStamp = "ce15af59-83b2-43f2-856e-3865660bcf3b",
                             Email = "michelle@localhost.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MICHELLE@LOCALHOST.COM",
                             NormalizedUserName = "MICHELLE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEtJP9+TDom7adrrhze9+lanvHCOEP1fiUiVD14x3voB2vRuenfvdBdTrZb0YkSCng==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENPhqlLRCkEFLZXx8gIqIAxT8eORrupPO47getoFVvBi7KakUU28VyhvM3mXMCDR2Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "510fd38b-76cf-483b-ad13-a0be12ec7069",
+                            SecurityStamp = "886b86f5-8116-42c1-baef-5dc0f40636e0",
                             TwoFactorEnabled = false,
                             UserName = "michelle@localhost.com"
+                        },
+                        new
+                        {
+                            Id = "ff759c08-ffff-4cea-b72c-78d3b31b1289",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a3290263-5790-4027-9db3-8e21d4e24099",
+                            Email = "zachariah@localhost.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ZACHARIAH@LOCALHOST.COM",
+                            NormalizedUserName = "ZACHARIAH@LOCALHOST.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAENq+ME5mC6mK39ELC2Fp7x+H6FEZz9l8XjjEi0gcqMxDExHrHsP5p7FJFc2k85IUHg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1e78f425-aa41-4a4b-8a72-dae76d3befc1",
+                            TwoFactorEnabled = false,
+                            UserName = "zachariah@localhost.com"
+                        });
+                });
+
+            modelBuilder.Entity("HMSProject.Data.DiagnosisSummary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Diagnosis")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Medicines")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Symptoms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DiagnosisSummaries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Diagnosis = "Alzheimer’s disease",
+                            Medicines = "Donepezil, galantamine and rivastigmine",
+                            PatientName = "Patient1",
+                            Symptoms = "Decreased range of motion"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Diagnosis = "Arthritis",
+                            Medicines = "Naproxen (Aleve), aspirin and ibuprofen (Motrin, Advil)",
+                            PatientName = "Patient2",
+                            Symptoms = "Pain, Stiffness, Swelling and Decreased range of motion"
+                        });
+                });
+
+            modelBuilder.Entity("HMSProject.Data.Nurse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("YearsOfExperience")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Nurses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ApplicationUserId = "ff759c08-ffff-4cea-b72c-78d3b31b1289",
+                            Name = "Zachariah",
+                            Surname = "Castaneda",
+                            YearsOfExperience = 2
                         });
                 });
 
@@ -247,7 +349,7 @@ namespace HMSProject.Migrations
                             Id = 1,
                             Age = 45,
                             ApplicationUserId = "f583f605-f00c-4fcb-8393-5206bd1178c4",
-                            BloodGroup = 4,
+                            BloodGroup = 7,
                             Doctor = "Little",
                             Gender = 0,
                             Name = "Murray",
@@ -259,7 +361,7 @@ namespace HMSProject.Migrations
                             Id = 2,
                             Age = 23,
                             ApplicationUserId = "0a928ef6-03ac-4a28-b0be-199ee6015077",
-                            BloodGroup = 5,
+                            BloodGroup = 4,
                             Doctor = "Hartman",
                             Gender = 1,
                             Name = "Michelle",
@@ -298,21 +400,28 @@ namespace HMSProject.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "e5dc40e8-cb83-4beb-966f-6badafec2735",
+                            ConcurrencyStamp = "852bb725-6e64-47f1-bc26-f7beee3ec153",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         },
                         new
                         {
                             Id = "5b6a080e-96c3-49b3-98eb-f7f5390ef46b",
-                            ConcurrencyStamp = "683de1ed-1b0f-4a31-89b2-b84b41194583",
+                            ConcurrencyStamp = "ad643e67-18c6-4401-aeb6-0e133775a664",
                             Name = "Nurse",
                             NormalizedName = "NURSE"
                         },
                         new
                         {
+                            Id = "34144627-963c-40b6-aac5-1285592a52c0",
+                            ConcurrencyStamp = "2bcd04aa-1585-40b3-b59c-8f5b422d0769",
+                            Name = "Patient",
+                            NormalizedName = "PATIENT"
+                        },
+                        new
+                        {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "578f45e2-bf33-4125-90b7-e5a912a185ab",
+                            ConcurrencyStamp = "f9a3dbb4-1644-4eac-b5d5-1ef487e13d96",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -414,6 +523,21 @@ namespace HMSProject.Migrations
                         {
                             UserId = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             RoleId = "cac43a6e-f7bb-4448-baaf-1add431ccbbf"
+                        },
+                        new
+                        {
+                            UserId = "f583f605-f00c-4fcb-8393-5206bd1178c4",
+                            RoleId = "34144627-963c-40b6-aac5-1285592a52c0"
+                        },
+                        new
+                        {
+                            UserId = "0a928ef6-03ac-4a28-b0be-199ee6015077",
+                            RoleId = "34144627-963c-40b6-aac5-1285592a52c0"
+                        },
+                        new
+                        {
+                            UserId = "ff759c08-ffff-4cea-b72c-78d3b31b1289",
+                            RoleId = "5b6a080e-96c3-49b3-98eb-f7f5390ef46b"
                         });
                 });
 
@@ -434,6 +558,15 @@ namespace HMSProject.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("HMSProject.Data.Nurse", b =>
+                {
+                    b.HasOne("HMSProject.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("HMSProject.Doctor", b =>

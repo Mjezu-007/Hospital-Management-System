@@ -1,19 +1,32 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace HMSProject
 {
   public partial class Home : Form
   {
+    private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<Home> _logger;
     private readonly LoginForm _loginForm;
+    private readonly DoctorForm _doctorForm;
+    private readonly NurseForm _nurseForm;
+    private readonly PatientForm _patientForm;
 
     public string TempRoleString { get; set; }
 
     public Home(ILogger<Home> logger
-      /*, LoginForm loginForm*/)
+      , UserManager<ApplicationUser> userManager
+      , LoginForm loginForm
+      , DoctorForm doctorForm
+      , PatientForm patientForm
+      , NurseForm nurseForm)
     {
       _logger = logger;
-      //_loginForm = loginForm;
+      _loginForm = loginForm;
+      _userManager = userManager;
+      _doctorForm = doctorForm;
+      _patientForm = patientForm;
+      _nurseForm = nurseForm;
       InitializeComponent();
     }
 
@@ -36,9 +49,8 @@ namespace HMSProject
         return;
       }
 
-      //DoctorForm Doc = new DoctorForm();
-      //Doc.Show();
-      //this.Hide();
+      _doctorForm.Show();
+      this.Hide();
     }
 
     private void pictureBox2_Click(object sender, EventArgs e)
@@ -49,9 +61,8 @@ namespace HMSProject
         return;
       }
 
-      //PatientForm Pat = new PatientForm();
-      //Pat.Show();
-      //this.Hide();
+      _patientForm.Show();
+      this.Hide();
     }
 
     private void pictureBox3_Click(object sender, EventArgs e)
@@ -75,9 +86,8 @@ namespace HMSProject
         return;
       }
 
-      //NurseForm Nurse = new NurseForm();
-      //Nurse.Show();
-      //this.Hide();
+      _nurseForm.Show();
+      this.Hide();
     }
   }
 }

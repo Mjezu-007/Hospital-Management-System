@@ -49,6 +49,22 @@ namespace HMSProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DiagnosisSummaries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PatientName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Medicines = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Diagnosis = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Symptoms = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiagnosisSummaries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -176,6 +192,27 @@ namespace HMSProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Nurses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    YearsOfExperience = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Nurses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Nurses_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Patients",
                 columns: table => new
                 {
@@ -205,9 +242,10 @@ namespace HMSProject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "5b6a080e-96c3-49b3-98eb-f7f5390ef46b", "683de1ed-1b0f-4a31-89b2-b84b41194583", "Nurse", "NURSE" },
-                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "e5dc40e8-cb83-4beb-966f-6badafec2735", "Doctor", "DOCTOR" },
-                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "578f45e2-bf33-4125-90b7-e5a912a185ab", "Administrator", "ADMINISTRATOR" }
+                    { "34144627-963c-40b6-aac5-1285592a52c0", "2bcd04aa-1585-40b3-b59c-8f5b422d0769", "Patient", "PATIENT" },
+                    { "5b6a080e-96c3-49b3-98eb-f7f5390ef46b", "ad643e67-18c6-4401-aeb6-0e133775a664", "Nurse", "NURSE" },
+                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "852bb725-6e64-47f1-bc26-f7beee3ec153", "Doctor", "DOCTOR" },
+                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "f9a3dbb4-1644-4eac-b5d5-1ef487e13d96", "Administrator", "ADMINISTRATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -215,10 +253,20 @@ namespace HMSProject.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "0a928ef6-03ac-4a28-b0be-199ee6015077", 0, "90db1407-3243-44f2-8d78-51cb7aec61b6", "michelle@localhost.com", true, false, null, "MICHELLE@LOCALHOST.COM", "MICHELLE@LOCALHOST.COM", "AQAAAAEAACcQAAAAEEtJP9+TDom7adrrhze9+lanvHCOEP1fiUiVD14x3voB2vRuenfvdBdTrZb0YkSCng==", null, false, "510fd38b-76cf-483b-ad13-a0be12ec7069", false, "michelle@localhost.com" },
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "c0ce38d9-1420-4f40-b128-ad12acf375dd", "admin@localhost.com", true, false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAEOYWjxEhO5Cn0imhZ28wASmVfJGg418MdIMSykWrtu9/wxFwIlscJwEIc9ROmC3YSw==", null, false, "e13e2c45-e368-4061-a694-36c2a82436b3", false, "Admin@localhost.com" },
-                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, "49688099-32f3-4638-84bd-444b174bccb2", "user@localhost.com", true, false, null, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEIOZmiJhpmVUjBy1xpxtKYCHEC6ux+SK60cQiEICBcK2lnJU1XMvhI6Sj+YqaejwPg==", null, false, "c27b43a7-ed85-4be9-b006-aafdccda92ea", false, "User@localhost.com" },
-                    { "f583f605-f00c-4fcb-8393-5206bd1178c4", 0, "827ec52b-5cda-41d3-a1bb-b027ff072dc1", "murray@localhost.com", true, false, null, "MURRAY@LOCALHOST.COM", "MURRAY@LOCALHOST.COM", "AQAAAAEAACcQAAAAEEc1hwIv0R4vt5BfNQOw4qHHLQv7ljoq75qKYteAS7HsL4Y5mr7k0u9AqIUyKvTyMA==", null, false, "d5b2ddfc-6d88-4bd1-8f59-2f7618103c61", false, "murray@localhost.com" }
+                    { "0a928ef6-03ac-4a28-b0be-199ee6015077", 0, "ce15af59-83b2-43f2-856e-3865660bcf3b", "michelle@localhost.com", true, false, null, "MICHELLE@LOCALHOST.COM", "MICHELLE@LOCALHOST.COM", "AQAAAAEAACcQAAAAENPhqlLRCkEFLZXx8gIqIAxT8eORrupPO47getoFVvBi7KakUU28VyhvM3mXMCDR2Q==", null, false, "886b86f5-8116-42c1-baef-5dc0f40636e0", false, "michelle@localhost.com" },
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "75ec8421-6821-47db-9258-3c75f6f51950", "admin@localhost.com", true, false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAEBoJaGvBRHL2ABee0EvaxSouhTFEAWaGO9J15NUemwI1fJRO3wLduf1Zrzov1YCgag==", null, false, "11412da5-55eb-4e79-a2a3-337e966f9367", false, "Admin@localhost.com" },
+                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, "46bf0a23-eef7-4998-be3d-7bb0f7b36ee6", "user@localhost.com", true, false, null, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEM2Q63Lj9xtP2FgK9AevnPQIpb6C0tzUGOseflS9QrZWVKEGkIXSGgze3Qi95ZeSQQ==", null, false, "7aaa41a4-5e1d-4590-bc2f-96cc872d7979", false, "User@localhost.com" },
+                    { "f583f605-f00c-4fcb-8393-5206bd1178c4", 0, "77e36a56-4f17-43f2-a366-32a88eb900c9", "murray@localhost.com", true, false, null, "MURRAY@LOCALHOST.COM", "MURRAY@LOCALHOST.COM", "AQAAAAEAACcQAAAAEGm4ZHF0ebfl5g7cB9gmvmPshy/vfxOElGkWqIESuDj/W0xyKs77mD2dUqnEyJ5+0Q==", null, false, "bbb57304-a8e9-4606-a0c1-2ea4ef6b220e", false, "murray@localhost.com" },
+                    { "ff759c08-ffff-4cea-b72c-78d3b31b1289", 0, "a3290263-5790-4027-9db3-8e21d4e24099", "zachariah@localhost.com", true, false, null, "ZACHARIAH@LOCALHOST.COM", "ZACHARIAH@LOCALHOST.COM", "AQAAAAEAACcQAAAAENq+ME5mC6mK39ELC2Fp7x+H6FEZz9l8XjjEi0gcqMxDExHrHsP5p7FJFc2k85IUHg==", null, false, "1e78f425-aa41-4a4b-8a72-dae76d3befc1", false, "zachariah@localhost.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DiagnosisSummaries",
+                columns: new[] { "Id", "Diagnosis", "Medicines", "PatientName", "Symptoms" },
+                values: new object[,]
+                {
+                    { 1, "Alzheimer’s disease", "Donepezil, galantamine and rivastigmine", "Patient1", "Decreased range of motion" },
+                    { 2, "Arthritis", "Naproxen (Aleve), aspirin and ibuprofen (Motrin, Advil)", "Patient2", "Pain, Stiffness, Swelling and Decreased range of motion" }
                 });
 
             migrationBuilder.InsertData(
@@ -226,8 +274,11 @@ namespace HMSProject.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
+                    { "34144627-963c-40b6-aac5-1285592a52c0", "0a928ef6-03ac-4a28-b0be-199ee6015077" },
                     { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "9e224968-33e4-4652-b7b7-8574d048cdb9" }
+                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "9e224968-33e4-4652-b7b7-8574d048cdb9" },
+                    { "34144627-963c-40b6-aac5-1285592a52c0", "f583f605-f00c-4fcb-8393-5206bd1178c4" },
+                    { "5b6a080e-96c3-49b3-98eb-f7f5390ef46b", "ff759c08-ffff-4cea-b72c-78d3b31b1289" }
                 });
 
             migrationBuilder.InsertData(
@@ -240,12 +291,17 @@ namespace HMSProject.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Nurses",
+                columns: new[] { "Id", "ApplicationUserId", "Name", "Surname", "YearsOfExperience" },
+                values: new object[] { 1, "ff759c08-ffff-4cea-b72c-78d3b31b1289", "Zachariah", "Castaneda", 2 });
+
+            migrationBuilder.InsertData(
                 table: "Patients",
                 columns: new[] { "Id", "Age", "ApplicationUserId", "BloodGroup", "Doctor", "Gender", "Name", "PhoneNumber", "Sickness" },
                 values: new object[,]
                 {
-                    { 1, 45, "f583f605-f00c-4fcb-8393-5206bd1178c4", 4, "Little", 0, "Murray", 727075020, "Malaria" },
-                    { 2, 23, "0a928ef6-03ac-4a28-b0be-199ee6015077", 5, "Hartman", 1, "Michelle", 828576405, "Ringworm" }
+                    { 1, 45, "f583f605-f00c-4fcb-8393-5206bd1178c4", 7, "Little", 0, "Murray", 727075020, "Malaria" },
+                    { 2, 23, "0a928ef6-03ac-4a28-b0be-199ee6015077", 4, "Hartman", 1, "Michelle", 828576405, "Ringworm" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -293,6 +349,11 @@ namespace HMSProject.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Nurses_ApplicationUserId",
+                table: "Nurses",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Patients_ApplicationUserId",
                 table: "Patients",
                 column: "ApplicationUserId");
@@ -316,7 +377,13 @@ namespace HMSProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "DiagnosisSummaries");
+
+            migrationBuilder.DropTable(
                 name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "Nurses");
 
             migrationBuilder.DropTable(
                 name: "Patients");

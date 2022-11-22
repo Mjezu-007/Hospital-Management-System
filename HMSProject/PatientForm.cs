@@ -16,13 +16,12 @@ namespace HMSProject
 
     public PatientForm(ILogger<DoctorForm> logger
        , UserManager<ApplicationUser> userManager
-       , AppDbContext context
-       , Home home)
+       , AppDbContext context)
     {
       _userManager = userManager;
       _logger = logger;
       _context = context;
-      _homeform = home;
+      //_homeform = home;
       InitializeComponent();
     }
 
@@ -34,7 +33,9 @@ namespace HMSProject
     }
     private void button4_Click(object sender, EventArgs e)
     {
-      _homeform.Show();
+      Form form = Application.OpenForms["Home"]; //it should works
+      form.Show();
+      //_homeform.Show();
       this.Hide();
     }
 

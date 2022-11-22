@@ -27,15 +27,15 @@ namespace HMSProject
       ApplicationConfiguration.Initialize();
       using (ServiceProvider serviceProvider = services.BuildServiceProvider())
       {
-        var loginForm = serviceProvider.GetRequiredService<PatientForm>();
-        Application.Run(loginForm);
+        var startupForm = serviceProvider.GetRequiredService<DiagnosisForm>();
+        Application.Run(startupForm);
       }
     }
 
     private static IServiceCollection ConfigureServices(this IServiceCollection services, IConfigurationRoot configuration)
     {
       services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(configuration["Data:DbConnectionString"]));
+        options.UseMySql(configuration["Data:MySQLConnectionString"], ServerVersion.AutoDetect(configuration["Data:MySQLConnectionString"])));
 
       //services.AddIdentity<IdentityUser, IdentityRole>();
       services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -50,6 +50,8 @@ namespace HMSProject
       .AddScoped<Home>()
       .AddScoped<DoctorForm>()
       .AddScoped<PatientForm>()
+      .AddScoped<NurseForm>()
+      .AddScoped<DiagnosisForm>()
       .AddSingleton<IHttpContextAccessor>(new HttpContextAccessor() { HttpContext = new DefaultHttpContext() { RequestServices = services.BuildServiceProvider() } });
 
       return services;

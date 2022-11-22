@@ -49,6 +49,16 @@ namespace HMSProject
           UserName = "michelle@localhost.com",
           NormalizedUserName = "MICHELLE@LOCALHOST.COM",
           EmailConfirmed = true
+        },
+        new ApplicationUser
+        {
+          Id = "ff759c08-ffff-4cea-b72c-78d3b31b1289",
+          Email = "zachariah@localhost.com",
+          NormalizedEmail = "ZACHARIAH@LOCALHOST.COM",
+          PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+          UserName = "zachariah@localhost.com",
+          NormalizedUserName = "ZACHARIAH@LOCALHOST.COM",
+          EmailConfirmed = true
         }
       );
     }

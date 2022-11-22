@@ -31,6 +31,12 @@ namespace HMSProject.Data.Configurations
         {
           RoleId = "34144627-963c-40b6-aac5-1285592a52c0",
           UserId = "0a928ef6-03ac-4a28-b0be-199ee6015077"
+        },
+        // Nurses.
+        new IdentityUserRole<string>
+        {
+          RoleId = "5b6a080e-96c3-49b3-98eb-f7f5390ef46b",
+          UserId = "ff759c08-ffff-4cea-b72c-78d3b31b1289"
         }
       );
     }
