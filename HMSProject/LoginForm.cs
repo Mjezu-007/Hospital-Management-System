@@ -32,12 +32,19 @@ namespace HMSProject
         return;
       }
 
+      if (!InternetConnectionChecker.IsConnectedToInternet())
+      {
+        MessageBox.Show("Unable to connect to database. Make sure you have internet connection.");
+        return;
+      }
+
       var isValidCredentials = await VerifyUserNamePassword(userName: DocNameTb.Text, password: PassTb.Text);
       if (!isValidCredentials)
       {
         MessageBox.Show("Incorrect information. Please contact your administrator.");
         return;
       }
+
 
       UserRoleCapturer.UserRole = Role.Text;
       Home home = new Home(_context, _userManager);
@@ -70,7 +77,8 @@ namespace HMSProject
 
     private void LoginForm_Load(object sender, EventArgs e)
     {
-
+      var status = InternetConnectionChecker.IsConnectedToInternet() ? "ONLINE" : "OFFLINE";
+      label4.Text += status;
     }
   }
 }
