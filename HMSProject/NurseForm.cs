@@ -197,7 +197,9 @@ namespace HMSProject
     #region HomeButton_Click(object sender, EventArgs e)
     private void HomeButton_Click(object sender, EventArgs e)
     {
-
+      Home home = new Home(_context, _userManager);
+      home.Show();
+      this.Hide();
     }
     #endregion
 
