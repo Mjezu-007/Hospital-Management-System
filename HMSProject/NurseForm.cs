@@ -41,7 +41,7 @@ namespace HMSProject
           {
             Email = BuildEmailAlias(NurseName.Text, NurseSurname.Text),
             NormalizedEmail = BuildEmailAlias(NurseName.Text, NurseSurname.Text)?.ToUpperInvariant(),
-            UserName = BuildEmailAlias(NurseName.Text, NurseSurname.Text)?.ToUpperInvariant(),
+            UserName = BuildEmailAlias(NurseName.Text, NurseSurname.Text),
             PasswordHash = hasher.HashPassword(null, passwordString),
             EmailConfirmed = true,
           };

@@ -49,7 +49,7 @@ namespace HMSProject
           {
             Email = BuildEmailAlias(PatName.Text, PatDoc.Text),
             NormalizedEmail = BuildEmailAlias(PatName.Text, PatDoc.Text)?.ToUpperInvariant(),
-            UserName = BuildEmailAlias(PatName.Text, PatDoc.Text)?.ToUpperInvariant(),
+            UserName = BuildEmailAlias(PatName.Text, PatDoc.Text),
             PasswordHash = hasher.HashPassword(null, passwordString),
             EmailConfirmed = true,
           };
