@@ -35,6 +35,13 @@ namespace HMSProject
       {
         try
         {
+          var nurseExist = _context.Nurses.FirstOrDefault(d => d.Id == int.Parse(NurseId.Text)) != null;
+          if (nurseExist)
+          {
+            MessageBox.Show($"Nurse with Id='{NurseId.Text}' already exist");
+            return;
+          }
+
           var passwordString = "P@ssword1";
           var hasher = new PasswordHasher<ApplicationUser>();
           var user = new ApplicationUser
