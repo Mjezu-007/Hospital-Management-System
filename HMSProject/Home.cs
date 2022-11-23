@@ -49,7 +49,7 @@ namespace HMSProject
 
     private void pictureBox1_Click(object sender, EventArgs e)
     {
-      if (UserRoleCapturer.UserRole != "Admin" && UserRoleCapturer.UserRole != "Doctor")
+      if (UserRoleCapturer.UserRole != "Admin")
       {
         MessageBox.Show("Your role doesn't allow you to complete this action.");
         return;
@@ -62,7 +62,7 @@ namespace HMSProject
 
     private void pictureBox2_Click(object sender, EventArgs e)
     {
-      if (UserRoleCapturer.UserRole != "Admin")
+      if (UserRoleCapturer.UserRole != "Admin" && UserRoleCapturer.UserRole != "Nurse")
       {
         MessageBox.Show("Your role doesn't allow you to complete this action.");
         return;
@@ -75,7 +75,7 @@ namespace HMSProject
 
     private void pictureBox3_Click(object sender, EventArgs e)
     {
-      if (UserRoleCapturer.UserRole != "Admin")
+      if (UserRoleCapturer.UserRole != "Admin" && UserRoleCapturer.UserRole != "Doctor")
       {
         MessageBox.Show("Your role doesn't allow you to complete this action.");
         return;
@@ -88,7 +88,7 @@ namespace HMSProject
 
     private void pictureBox5_Click(object sender, EventArgs e)
     {
-      if (UserRoleCapturer.UserRole != "Admin" && UserRoleCapturer.UserRole != "Doctor")
+      if (UserRoleCapturer.UserRole != "Admin")
       {
         MessageBox.Show("Your role doesn't allow you to complete this action.");
         return;
