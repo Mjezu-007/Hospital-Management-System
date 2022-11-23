@@ -69,10 +69,8 @@ namespace HMSProject
       }
 
       var isPasswordValid = await _userManager.CheckPasswordAsync(existingUser, password);
-      if (!isPasswordValid)
-        throw new InvalidOperationException($"Invalid password for user Id={existingUser.Id}.");
 
-      return true;
+      return isPasswordValid;
     }
 
     private void LoginForm_Load(object sender, EventArgs e)
