@@ -8,7 +8,7 @@ namespace HMSProject
   {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly AppDbContext _context;
-    
+
     public DoctorForm(
       UserManager<ApplicationUser> userManager
       , AppDbContext context)
@@ -80,12 +80,17 @@ namespace HMSProject
               YearsOfExperience = int.Parse(DocExp.Text),
             };
             _context.Doctors.Add(doctor);
+
+            await _context.SaveChangesAsync();
+
+            MessageBox.Show("Doctor Successfully Added");
+            populate();
+          }
+          else
+          {
+            MessageBox.Show($"Unable to create doctor. {result?.Errors?.FirstOrDefault()?.Description }");
           }
 
-          await _context.SaveChangesAsync();
-
-          MessageBox.Show("Doctor Successfully Added");
-          populate();
         }
         catch (Exception ex)
         {
