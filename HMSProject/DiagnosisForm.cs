@@ -10,23 +10,16 @@ namespace HMSProject
   public partial class DiagnosisForm : Form
   {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly ILogger<DoctorForm> _logger;
     private readonly AppDbContext _context;
-    private readonly Home _home;
 
-    public DiagnosisForm(ILogger<DoctorForm> logger
-      , UserManager<ApplicationUser> userManager
-      , AppDbContext context
-      , Home home)
+    public DiagnosisForm(
+      UserManager<ApplicationUser> userManager
+      , AppDbContext context)
     {
-      _logger = logger;
       _userManager = userManager;
       _context = context;
-      _home = home;
       InitializeComponent();
     }
-
-    SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MJEZU PW\Documents\HMSdb.mdf;Integrated Security=True;Connect Timeout=30");
 
     void Populatecombo()
     {
@@ -73,7 +66,8 @@ namespace HMSProject
 
     private void button4_Click(object sender, EventArgs e)
     {
-      _home.Show();
+      Home home = new Home(_context, _userManager);
+      home.Show();
       this.Hide();
     }
 

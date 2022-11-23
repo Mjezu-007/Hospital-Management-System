@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using HMSProject.Helper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
 namespace HMSProject
@@ -7,19 +8,18 @@ namespace HMSProject
   {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
-    private readonly ILogger<LoginForm> _logger;
     private readonly AppDbContext _context;
-    private readonly Home _homeForm;
+    //private readonly Home _homeForm;
 
-    public LoginForm(ILogger<LoginForm> logger
-      , AppDbContext context
+    public LoginForm(
+      AppDbContext context
       , UserManager<ApplicationUser> userManager
-      , SignInManager<ApplicationUser> signInManager)
+      //, SignInManager<ApplicationUser> signInManager
+      )
     {
-      _logger = logger ?? throw new ArgumentNullException(nameof(logger));
       _context = context ?? throw new ArgumentNullException(nameof(context));
       _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
-      _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
+      //_signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
       //_homeForm = homeForm;
       InitializeComponent();
     }
@@ -39,8 +39,9 @@ namespace HMSProject
         return;
       }
 
-      Form form = Application.OpenForms["Home"]; //it should works
-      form.Show();
+      UserRoleCapturer.UserRole = Role.Text;
+      Home home = new Home(_context, _userManager);
+      home?.Show();
 
       //_homeForm.Show();
       this.Hide();
@@ -57,15 +58,19 @@ namespace HMSProject
       var existingUser = await _userManager.FindByEmailAsync(userName);
       if (existingUser == null)
       {
-        _logger.LogWarning(LoggerEventIds.UserValidationFailed, $"User with '{userName}' not found.");
         return false;
       }
 
       var isPasswordValid = await _userManager.CheckPasswordAsync(existingUser, password);
       if (!isPasswordValid)
-        _logger.LogWarning(LoggerEventIds.InvalidPassword, $"Invalid password for user Id={existingUser.Id}.");
+        throw new InvalidOperationException($"Invalid password for user Id={existingUser.Id}.");
 
       return true;
+    }
+
+    private void LoginForm_Load(object sender, EventArgs e)
+    {
+
     }
   }
 }

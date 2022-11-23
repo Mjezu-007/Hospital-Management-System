@@ -7,14 +7,12 @@ namespace HMSProject
   public partial class DoctorForm : Form
   {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly ILogger<DoctorForm> _logger;
     private readonly AppDbContext _context;
     
-    public DoctorForm(ILogger<DoctorForm> logger
-      , UserManager<ApplicationUser> userManager
+    public DoctorForm(
+      UserManager<ApplicationUser> userManager
       , AppDbContext context)
     {
-      _logger = logger;
       _userManager = userManager;
       _context = context;
       InitializeComponent();

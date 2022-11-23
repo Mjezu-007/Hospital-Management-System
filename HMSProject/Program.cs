@@ -27,7 +27,7 @@ namespace HMSProject
       ApplicationConfiguration.Initialize();
       using (ServiceProvider serviceProvider = services.BuildServiceProvider())
       {
-        var startupForm = serviceProvider.GetRequiredService<DiagnosisForm>();
+        var startupForm = serviceProvider.GetRequiredService<SplashForm>();
         Application.Run(startupForm);
       }
     }
@@ -35,7 +35,7 @@ namespace HMSProject
     private static IServiceCollection ConfigureServices(this IServiceCollection services, IConfigurationRoot configuration)
     {
       services.AddDbContext<AppDbContext>(options =>
-        options.UseMySql(configuration["Data:MySQLConnectionString"], ServerVersion.AutoDetect(configuration["Data:MySQLConnectionString"])));
+        options.UseMySql(configuration["Data:AzureDbConnectionString"], ServerVersion.AutoDetect(configuration["Data:AzureDbConnectionString"])));
 
       //services.AddIdentity<IdentityUser, IdentityRole>();
       services.AddIdentity<ApplicationUser, IdentityRole>()
